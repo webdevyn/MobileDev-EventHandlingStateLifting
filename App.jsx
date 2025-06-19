@@ -7,12 +7,23 @@ import { useState } from "react";
 export default function App() {
   const [tasks, setTasks] = useState(["Do laundry", "Go to gym", "Walk dog"]);
 
+  const addTask = (newTask) => {
+    setTasks((prevTasks) => {
+      const taskExists = prevTasks.includes(newTask);
+      if (taskExists) {
+        return prevTasks;
+      }
+
+      return [...prevTasks, newTask];
+    });
+  };
+
   return (
     <SafeAreaView>
       <ScrollView>
         <ToDoList tasks={tasks} />
       </ScrollView>
-      <ToDoForm addTask={setTasks} />
+      <ToDoForm addTask={addTask} />
     </SafeAreaView>
   );
 }
