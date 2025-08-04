@@ -1,10 +1,11 @@
 import { StyleSheet, View, TextInput, Button } from "react-native";
-import React, { useState } from "react";
+import { useState } from "react";
+import firebase from "./firebaseConfig";
 
 function ToDoForm({ addTask }) {
   const [task, setTask] = useState("");
 
-  const handleAddTask = () => {
+  const handleAddTask = async () => {
     addTask(task);
     setTask("");
   };
