@@ -2,7 +2,7 @@
 
 A React Native mobile application exploring core React patterns for managing state and user interactions. This project demonstrates best practices for handling events and lifting state across component hierarchies—essential patterns for building scalable mobile applications.
 
-## 🎯 Overview
+## Overview
 
 Building complex mobile applications requires mastering how components communicate and share state. This project is a deep dive into two fundamental React concepts that form the foundation of maintainable, scalable apps:
 
@@ -11,7 +11,7 @@ Building complex mobile applications requires mastering how components communica
 
 Whether you're building a simple counter or a complex form with multiple interdependent fields, these patterns are critical to writing clean, maintainable code.
 
-## ✨ Features
+## Features
 
 - **Comprehensive Event Handling** - Button clicks, text input, gestures, and touch events
 - **State Lifting Patterns** - Shared state management across parent and child components
@@ -23,7 +23,7 @@ Whether you're building a simple counter or a complex form with multiple interde
 - **Best Practices** - Production-ready patterns and architectural decisions
 - **Cross-Platform** - Works seamlessly on iOS, Android, and Web via Expo
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend Framework
 - **React Native 0.79** - Cross-platform mobile framework
@@ -36,7 +36,7 @@ Whether you're building a simple counter or a complex form with multiple interde
 - **Expo CLI** - Development server and testing
 - **React DevTools** - Component debugging and inspection
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 MobileDev-EventHandlingStateLifting/
@@ -67,7 +67,7 @@ MobileDev-EventHandlingStateLifting/
 └── .gitignore
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -132,7 +132,7 @@ Opens at `http://localhost:19000`
 2. Scan the QR code displayed in the terminal
 3. App launches in Expo Go
 
-## 📚 Core Concepts
+## Core Concepts
 
 ### Event Handling
 
@@ -221,7 +221,7 @@ The answer: **it should live in the closest common ancestor** of all components 
 #### The Problem: Isolated State
 
 ```javascript
-// ❌ This won't work for sharing state
+// This won't work for sharing state
 const Counter1 = () => {
   const [count, setCount] = useState(0);
   return (
@@ -249,7 +249,7 @@ const Counter2 = () => {
 #### The Solution: Lifted State
 
 ```javascript
-// ✅ State lives in the parent where it's shared
+// State lives in the parent where it's shared
 const CounterApp = () => {
   const [count, setCount] = useState(0);
 
@@ -286,7 +286,7 @@ const Controls = ({ onIncrement, onDecrement, onReset }) => (
 
 **Why this matters:** By lifting state, both `DisplayCount` and `Controls` now share the same count value. Changes in one child are reflected in all siblings instantly.
 
-## 🎨 Real-World Component Examples
+## Real-World Component Examples
 
 ### Counter Component
 
@@ -432,7 +432,7 @@ export const Toggle = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.status}>
-        Status: {isOn ? '🟢 ON' : '🔴 OFF'}
+        Status: {isOn ? 'ON' : 'OFF'}
       </Text>
       <Button
         title={isOn ? 'Turn Off' : 'Turn On'}
@@ -448,7 +448,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 🔄 Data Flow Pattern
+## Data Flow Pattern
 
 Understanding this flow is key to mastering React:
 
@@ -470,7 +470,7 @@ UI Reflects New State
 
 This unidirectional data flow makes React applications predictable and easier to debug.
 
-## 💡 Key Insights
+## Key Insights
 
 ### When to Lift State
 
@@ -484,38 +484,38 @@ Ask yourself these questions:
 ### Avoiding Common Mistakes
 
 ```javascript
-// ❌ DON'T mutate state directly
+// DON'T mutate state directly
 state.count = state.count + 1;
 
-// ✅ DO create new state
+// DO create new state
 setState(prevState => ({ ...prevState, count: prevState.count + 1 }));
 setState(count + 1); // Simpler for primitives
 
-// ❌ DON'T call event handlers immediately
+// DON'T call event handlers immediately
 <Button onPress={handlePress()} />
 
-// ✅ DO pass function references
+// DO pass function references
 <Button onPress={handlePress} />
 <Button onPress={() => handlePress(param)} />
 
-// ❌ DON'T forget to pass callbacks to children
+// DON'T forget to pass callbacks to children
 <Child value={state} />
 
-// ✅ DO pass both state and callbacks
+// DO pass both state and callbacks
 <Child value={state} onChange={(val) => setState(val)} />
 ```
 
-## 🧪 Testing Your Understanding
+## Testing Your Understanding
 
 Here are some patterns to test yourself with:
 
-- ✅ Build a component with multiple buttons that update shared state
-- ✅ Create a form where field validation depends on state
-- ✅ Implement a list where adding/removing items updates a counter
-- ✅ Build nested components that communicate through lifted state
-- ✅ Handle complex user interactions (multi-step flows, conditional rendering)
+- Build a component with multiple buttons that update shared state
+- Create a form where field validation depends on state
+- Implement a list where adding/removing items updates a counter
+- Build nested components that communicate through lifted state
+- Handle complex user interactions (multi-step flows, conditional rendering)
 
-## 📱 Project Examples
+## Project Examples
 
 The project includes multiple screens demonstrating these concepts:
 
@@ -527,7 +527,7 @@ The project includes multiple screens demonstrating these concepts:
 
 Each screen is designed to be a learning tool and reference implementation.
 
-## 🚀 Deployment
+## Deployment
 
 ### Build for Production
 
@@ -539,7 +539,7 @@ eas build --platform web
 
 For detailed deployment instructions, see [Expo Deployment Documentation](https://docs.expo.dev/deploy/build-project/).
 
-## 🐛 Debugging
+## Debugging
 
 ### React DevTools
 
@@ -555,7 +555,7 @@ npm start
 - Component not re-rendering? Verify state is actually changing
 - Children not receiving updates? Confirm state is lifted to the right parent
 
-## 📚 Resources
+## Resources
 
 - [React Hooks Documentation](https://react.dev/reference/react/useState) - Official useState guide
 - [Responding to Events](https://react.dev/learn#responding-to-events) - Event handling fundamentals
@@ -563,7 +563,7 @@ npm start
 - [React Native Touch Events](https://reactnative.dev/docs/handling-touches) - Advanced touch handling
 - [Expo Documentation](https://docs.expo.dev/) - Development and deployment
 
-## 🤝 Contributing
+## Contributing
 
 Improvements and additions welcome! Feel free to:
 
@@ -574,17 +574,17 @@ Improvements and additions welcome! Feel free to:
 5. Push to branch (`git push origin feature/new-example`)
 6. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is open source and available under the MIT License.
 
-## 👤 Author
+## Author
 
 **Devyn Weir**
 - GitHub: [@webdevyn](https://github.com/webdevyn)
 - Portfolio: [webdevyn.github.io](https://webdevyn.github.io)
 
-## 📞 Questions?
+## Questions?
 
 Have questions about event handling, state lifting, or React patterns? Open a GitHub Issue and let's discuss!
 
